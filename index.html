@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+<meta charset="UTF-8">
+<title>For Ma ❤️</title>
+
+<style>
+body {
+  margin: 0;
+  overflow: hidden;
+  font-family: Arial;
+  text-align: center;
+  background: linear-gradient(270deg, #ff758c, #ff7eb3);
+  background-size: 400% 400%;
+  animation: bg 8s ease infinite;
+  color: white;
+}
+
+@keyframes bg {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+
+h1 {
+  margin-top: 120px;
+  font-size: 32px;
+}
+
+p {
+  font-size: 22px;
+}
+
+button {
+  margin: 15px;
+  padding: 12px 25px;
+  font-size: 18px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.yes, .no {
+  background: #ff4d6d;
+  color: white;
+}
+
+.heart {
+  position: fixed;
+  bottom: -10px;
+  color: red;
+  animation: float 5s linear infinite;
+}
+
+@keyframes float {
+  0% {transform: translateY(0);}
+  100% {transform: translateY(-100vh);}
+}
+</style>
+</head>
+
+<body>
+
+<h1>Ma ❤️</h1>
+<p id="typing"></p>
+<p>ပြန်ချစ်ပါနော် ❤️</p>
+
+<button class="yes" onclick="loveClick()">ချစ်တယ် ❤️</button>
+<button class="no" onclick="loveClick()">ချစ်တယ် ❤️</button>
+
+<script>
+// ✨ typing animation
+const text = "ကျတော်ကို မဖြေမပေးတော့ဘူးလား 🥺";
+let i = 0;
+
+function typingEffect() {
+  if (i < text.length) {
+    document.getElementById("typing").innerHTML += text.charAt(i);
+    i++;
+    setTimeout(typingEffect, 80);
+  }
+}
+
+typingEffect();
+
+function loveClick() {
+  document.body.innerHTML = "<h1>Ma ❤️</h1><p>ငါက တကယ်ချစ်တာပါ 🥺❤️</p><p>ပြန်ချစ်ပါနော် 💖</p>";
+}
+
+// heart animation
+setInterval(() => {
+  let heart = document.createElement("div");
+  heart.innerHTML = "❤️";
+  heart.className = "heart";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = (Math.random() * 20 + 20) + "px";
+  document.body.appendChild(heart);
+
+  setTimeout(() => {
+    heart.remove();
+  }, 5000);
+}, 300);
+</script>
+
+</body>
+</html>
